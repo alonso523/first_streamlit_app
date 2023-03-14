@@ -47,5 +47,5 @@ streamlit.dataframe(my_data_rows)
 
 # Allow the end user to add a fruit to the list
 add_my_fruit = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-my_cur.execute("Insert into fruit_load_list ('FRUIT_NAME') values (add_my_fruit) ")
-streamlit.dataframe(my_data_rows)
+#my_cur.execute("Insert into fruit_load_list ('FRUIT_NAME') values (add_my_fruit) ")
+#streamlit.dataframe(my_data_rows)
