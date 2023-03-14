@@ -49,11 +49,7 @@ streamlit.dataframe(my_data_rows)
 fruit_to_insert = streamlit.text_input('What fruit would you like to insert in the table?','Kiwi')
 streamlit.write('The user entered ', fruit_to_insert)
 
-import snowflake.connector
-
-my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur1 = my_cnx1.cursor()
-my_cur1.execute("Insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values("+ fruit_to_insert + ")")
-my_data_rows1 = my_cur1.fetchall()
+my_cur.execute("SELECT * from fruit_load_list")
+my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains")
-streamlit.dataframe(my_data_rows1)
+streamlit.dataframe(my_data_rows)
