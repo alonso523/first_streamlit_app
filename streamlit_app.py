@@ -46,6 +46,8 @@ streamlit.header("The fruit load list contains")
 streamlit.dataframe(my_data_rows)
 
 # Allow the end user to add a fruit to the list
-add_my_fruit = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-#my_cur.execute("Insert into fruit_load_list ('FRUIT_NAME') values (add_my_fruit) ")
-#streamlit.dataframe(my_data_rows)
+fruit_to_insert = streamlit.text_input('What fruit would you like to insert in the table?','Kiwi')
+streamlit.write('The user entered ', fruit_to_insert)
+
+my_cur.execute("Insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values (fruit_to_insert) ")
+streamlit.dataframe(my_data_rows)
